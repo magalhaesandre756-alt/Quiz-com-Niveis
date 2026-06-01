@@ -1,4 +1,4 @@
-# Quiz-com-N-veis
+# Quiz-com-Niveis
 Integrantes:
 André de Oliveira Magalhães.
 Bruno Lopes Borges.
