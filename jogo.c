@@ -1,27 +1,28 @@
 #include <stdio.h>
 #include <stdlib.h>
-
+#include <string.h>
+#include <locale.h>
 void tela_inicial();
 void pausa();
+int questoes(void);
 
 int opcao;
 
-int main()
-{
-
+int main() {
+setlocale(LC_ALL, "Portuguese");
     do { 
-
         tela_inicial();
 
         switch(opcao)
         {
             case 1:
-                printf("Iniciando...\n");
+                printf("Iniciando QUIZ...\n");
+                questoes();
                 break;
 
             case 2:
-                printf("Sao 18 perguntas no total e a cada resposta certa voce avanca 1 nivel\n"
-                       "ao responder todas de forma correta, voce vence o QUIZ Com Niveis!\n");
+                printf("Sao 18 perguntas no total e a cada resposta certa voce avanca 1 nivel.\n"
+                       "Ao responder todas de forma correta, voce vence o QUIZ Com Niveis!\n");
                 pausa();
                 break;
 
@@ -30,7 +31,7 @@ int main()
                 break;
 
             default:
-                printf("Opcao invalida\n");
+                printf("Opcao invalida!\n");
                 pausa();
         }
     }    
@@ -45,9 +46,9 @@ void tela_inicial() {
     printf("           QUIZ COM NIVEIS          \n");
     printf("====================================\n");
 
-    printf("1 - Jogar\n");
-    printf("2 - Objetivo do QUIZ\n");
-    printf("3 - Sair\n");
+    printf("1 - Jogar.\n");
+    printf("2 - Objetivo do QUIZ.\n");
+    printf("3 - Sair.\n");
 
     printf("\nEscolha uma opcao: ");
     scanf("%i", &opcao);
@@ -58,4 +59,30 @@ void tela_inicial() {
 void pausa() {
     printf("\nPressione enter para continuar...\n");
     while (getchar () != '\n');
+}
+
+int questoes(void) {
+    FILE *arquivo = fopen("perguntas.txt", "r");
+
+    if(arquivo == NULL) {
+        printf("Erro ao abrir o arquivo.\n");
+        exit (1);
+    }
+
+    char linha[300];
+    char resposta;
+
+    while (fgets(linha, sizeof(linha), arquivo) != NULL) {
+
+        printf("%s", linha);
+
+        if (strncmp(linha, "D)", 2) == 0) {
+            printf("Digite sua resposta (A, B, C ou D):");
+            scanf(" %c", &resposta);
+            system("cls");
+        }
+
+    }
+
+    fclose(arquivo);
 }
