@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <locale.h>
+#include <ctype.h>
 void tela_inicial();
 void pausa();
 int questoes(void);
@@ -71,18 +72,37 @@ int questoes(void) {
 
     char linha[300];
     char resposta;
+    char respostaCorreta = ' ';
 
     while (fgets(linha, sizeof(linha), arquivo) != NULL) {
+        if (strncmp(linha, "RESP:", 5) == 0)
+        {
+            respostaCorreta = toupper(linha[5]);
+            continue;
+        }
 
         printf("%s", linha);
 
         if (strncmp(linha, "D)", 2) == 0) {
-            printf("Digite sua resposta (A, B, C ou D):");
+            printf("Digite sua resposta (A, B, C ou D): ");
             scanf(" %c", &resposta);
+            while (getchar() != '\n');
+
+            if (toupper(resposta) == respostaCorreta)
+            {
+                printf("\nAcertou!\n");
+            }
+            else
+            {
+                printf("\nErrou!\n");
+            }
+
+            pausa();
             system("cls");
         }
 
     }
 
     fclose(arquivo);
+    return 0;
 }
