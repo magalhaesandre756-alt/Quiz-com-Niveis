@@ -3,88 +3,106 @@ A) Sao Paulo
 B) Rio de Janeiro
 C) Brasilia
 D) Belo Horizonte
+RESPOSTA:C
 2. Quantos dias tem uma semana?
 A) 5
 B) 6
 C) 7
 D) 8
+RESPOSTA:C
 3. Qual animal e conhecido como "o rei da selva"?
 A) Tigre
 B) Leao
 C) Elefante
 D) Gorila
-4. Qual a a cor do ceu num dia ensolarado?
+RESPOSTA:B
+4. Qual a cor do ceu num dia ensolarado?
 A) Verde
 B) Amarelo
 C) Azul
 D) Roxo
+RESPOSTA:C
 5. Quantos meses tem um ano?
 A) 10
 B) 11
 C) 12
 D) 13
+RESPOSTA:C
 6. Quem escreveu "Dom Quixote"?
 A) Shakespeare
 B) Cervantes
 C) Dante
 D) Homero
+RESPOSTA:B
 7. Em que continente fica o Egito?
 A) Asia
 B) Europa
 C) America
 D) Africa
-8. Qual é o maior planeta do sistema solar?
+RESPOSTA:D
+8. Qual e o maior planeta do sistema solar?
 A) Saturno
 B) Netuno
 C) Jupiter
 D) Urano
+RESPOSTA:C
 9. Em que ano o homem pisou na Lua pela primeira vez?
 A) 1965
 B) 1967
 C) 1969
 D) 1971
+RESPOSTA:C
 10. Qual e o elemento quimico de simbolo "Au"?
 A) Prata
 B) Ouro
 C) Aluminio
 D) Arsenio
+RESPOSTA:B
 11. Quem pintou a Mona Lisa?
 A) Michelangelo
 B) Rafael
 C) Leonardo da Vinci
 D) Caravaggio
-12. Qual a formula química da água?
+RESPOSTA:C
+12. Qual a formula quimica da agua?
 A) HO
-B) H₂O
-C) H₃O
-D) H₂O₂
+B) H2O
+C) H3O
+D) H2O2
+RESPOSTA:B
 13. Quantos ossos tem o corpo humano adulto?
 A) 186
 B) 206
 C) 226
 D) 246
-14. Qual pais tem a maior extensão territorial do mundo?
+RESPOSTA:B
+14. Qual pais tem a maior extensao territorial do mundo?
 A) China
 B) Canada
 C) EUA
 D) Russia
-15. Em qual ano ocorreu a Revolução Francesa?
+RESPOSTA:D
+15. Em qual ano ocorreu a Revolucao Francesa?
 A) 1776
 B) 1789
 C) 1804
 D) 1815
+RESPOSTA:B
 16. Qual e o rio mais longo do mundo?
 A) Amazonas
 B) Congo
 C) Nilo
 D) Yangtze
+RESPOSTA:C
 17. Qual filosofo grego escreveu "A Republica"?
 A) Socrates
 B) Aristoteles
 C) Platao
 D) Epicuro
-18.Qual e o unico pais do mundo que faz fronteira simultaneamente com a Franca e com os Paises Baixos?
+RESPOSTA:C
+18. Qual e o unico pais do mundo que faz fronteira simultaneamente com a Franca e com os Paises Baixos?
 A) Alemanha
 B) Belgica
 C) Luxemburgo
 D) Brasil
+RESPOSTA:D
