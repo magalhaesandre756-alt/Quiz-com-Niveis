@@ -108,7 +108,9 @@ int questoes(void) {
         if (strncmp(linha, "RESPOSTA:", 9) == 0) {
 
             respostaCorreta = ' ';
-            for (int i = 9; linha[i] != '\0'; i++) {
+
+            int i;
+            for (i = 9; linha[i] != '\0'; i++) {
                 char c = toupper(linha[i]);
                 if (c == 'A' || c == 'B' || c == 'C' || c == 'D') {
                     respostaCorreta = c;
