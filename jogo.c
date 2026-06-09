@@ -3,14 +3,9 @@
 #include <string.h>
 #include <locale.h>
 #include <ctype.h>
-#include <conio.h>
-#include <windows.h>
-#include <time.h>
-
 void tela_inicial();
 void pausa();
 int questoes(void);
-char lerRespostaComTempo(int segundos);
 
 int opcao;
 
@@ -70,67 +65,56 @@ void pausa() {
 int questoes(void) {
     FILE *arquivo = fopen("perguntas.txt", "r");
 
-    if (arquivo == NULL) {
+    if(arquivo == NULL) {
         printf("Erro ao abrir o arquivo.\n");
-        pausa();
-        return 0;
+        exit (1);
     }
 
     char linha[300];
     char resposta;
     char respostaCorreta;
-
-    int nivel = 1;
-    int tempo = 30;
-    int diminuirtempo = 2;
-    int tempominimo = 8;
-
-    printf("====================================\n");
-    printf("              NIVEL %d              \n", nivel);
-    printf("        Tempo: %d segundos\n", tempo);
-    printf("====================================\n\n");
+    char respostaCorreta = ' ';
 
     while (fgets(linha, sizeof(linha), arquivo) != NULL) {
+        if (strncmp(linha, "RESP:", 5) == 0)
+        {
+            respostaCorreta = toupper(linha[5]);
+            continue;
+        }
 
         if (strncmp(linha, "RESPOSTA:", 9) != 0) {
             printf("%s", linha);
         }
 
         if (strncmp(linha, "D)", 2) == 0) {
-            resposta = lerRespostaComTempo(tempo);
+            printf("Digite sua resposta (A, B, C ou D): ");
+            scanf(" %c", &resposta);
 
-            if (resposta == '\0') {
-                printf("\nVoce perdeu! O tempo acabou no nivel %d.\n", nivel);
+            while (getchar() != '\n');
 
-                fclose(arquivo);
-                pausa();
-                return 0;
+            if (toupper(resposta) == respostaCorreta)
+            {
+                printf("\nAcertou!\n");
             }
+            else
+            {
+                printf("\nErrou!\n");
+            }
+
+            pausa();
         }
 
         if (strncmp(linha, "RESPOSTA:", 9) == 0) {
-            respostaCorreta = toupper(linha[9]);
 
-            if (toupper(resposta) == respostaCorreta) {
-                printf("\nAcertou! Voce avancou para o proximo nivel!\n");
+            respostaCorreta = linha[9];
 
-                nivel++;
+            if (toupper(resposta) == toupper(respostaCorreta)) {
 
-                tempo = tempo - diminuirtempo;
-
-                if (tempo < tempominimo) {
-                    tempo = tempominimo;
-                }
-
+                printf("\nAcertou! Proxima pergunta.\n");
                 pausa();
-                system("cls");
-
-                printf("====================================\n");
-                printf("              NIVEL %d              \n", nivel);
-                printf("        Tempo: %d segundos\n", tempo);
-                printf("====================================\n\n");
 
             } else {
+
                 printf("\nErrou! Fim de jogo.\n");
                 printf("Resposta correta: %c\n", respostaCorreta);
 
@@ -138,46 +122,13 @@ int questoes(void) {
                 pausa();
                 return 0;
             }
+
         }
     }
-
     fclose(arquivo);
 
-    printf("\nParabens! Voce completou o quiz!\n");
+    printf("Parabens! Voce completou o quiz!\n");
     pausa();
     return 1;
+
 }
-
-char lerRespostaComTempo(int segundos) {
-    time_t inicio = time(NULL);
-    int tempoespera = 3;
-    int temporestante;
-    int ultimotempo = -1;
-    char resposta;
-
-    printf("\nPrepare-se! O cronometro vai comecar em %d segundos...\n", tempoespera);
-    Sleep(tempoespera * 1000);
-
-    printf("\nVoce tem %d segundos para responder.\n", segundos);
-    printf("Digite A, B, C ou D: ");
-
-    while (1) {
-        temporestante = segundos - (int) difftime(time(NULL), inicio);
-
-        if (temporestante <=0 ) {
-            printf("\nTEMPO ESGOTADO!\n");
-            return '\0';
-        }
-        if (_kbhit()) {
-            resposta = toupper(getch());
-
-            if (resposta == 'A' || resposta == 'B' || resposta == 'C' || resposta == 'D') {
-                printf("%c\n", resposta);
-                return resposta;
-            }
-        }
-        Sleep(100);
-
-    }
-}
-
