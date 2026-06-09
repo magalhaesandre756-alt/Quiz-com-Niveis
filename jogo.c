@@ -73,34 +73,15 @@ int questoes(void) {
     char linha[300];
     char resposta;
     char respostaCorreta;
-
     while (fgets(linha, sizeof(linha), arquivo) != NULL) {
-        if (strncmp(linha, "RESP:", 5) == 0)
-        {
-            respostaCorreta = toupper(linha[5]);
-            continue;
-        }
 
         if (strncmp(linha, "RESPOSTA:", 9) != 0) {
             printf("%s", linha);
         }
 
         if (strncmp(linha, "D)", 2) == 0) {
-            printf("Digite sua resposta (A, B, C ou D): ");
+            printf("Digite sua resposta (A, B, C ou D):");
             scanf(" %c", &resposta);
-
-            while (getchar() != '\n');
-
-            if (toupper(resposta) == respostaCorreta)
-            {
-                printf("\nAcertou!\n");
-            }
-            else
-            {
-                printf("\nErrou!\n");
-            }
-
-            pausa();
         }
 
         if (strncmp(linha, "RESPOSTA:", 9) == 0) {
@@ -125,9 +106,7 @@ int questoes(void) {
         }
     }
     fclose(arquivo);
-
     printf("Parabens! Voce completou o quiz!\n");
     pausa();
     return 1;
-
 }
