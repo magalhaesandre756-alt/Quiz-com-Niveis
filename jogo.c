@@ -73,7 +73,6 @@ int questoes(void) {
     char linha[300];
     char resposta;
     char respostaCorreta;
-    char respostaCorreta = ' ';
 
     while (fgets(linha, sizeof(linha), arquivo) != NULL) {
         if (strncmp(linha, "RESP:", 5) == 0)
